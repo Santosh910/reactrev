@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 
-import './App.css';
+import './San.css'
 import { Route,Routes} from 'react-router-dom'
 import Homepage from './components/Homepage';
 import Login from './components/Login';
@@ -25,6 +25,10 @@ import UseMemo from './components/UseMemo';
 import UseCallback from './components/UseCallback';
 import UseReducer from './components/UseReducer';
 import UseContext from './components/UseContext';
+import YourProducts from './components/YourProducts';
+import UpdateProduct from './components/UpdateProduct';
+import Navbar from './components/Common/Navbar';
+import Cart from './components/Cart';
 
 
 
@@ -35,9 +39,12 @@ function App() {
   const[loggedIn,setIsLoggedIn] = useState(false)
   return (
     <div>
+      <Navbar/>
       <Routes>
       <Route exact path='*' element={<PageNotFound/>}/>
         <Route exact path='/' element={<Homepage/>}/>
+        <Route exact path='/cart' element={<Cart/>}/>
+        
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/register' element={<Register/>}/>
         <Route exact path='/profile' element={<Profile/>}/>
@@ -58,6 +65,8 @@ function App() {
         <Route exact path='/use-callback' element={<UseCallback/>}/>
         <Route exact path='/use-reducer' element={<UseReducer/>}/>
         <Route exact path='/use-context' element={<UseContext/>}/>
+        <Route exact path='/your-products' element={<YourProducts/>}/>
+        <Route exact path='/update-product/:id' element={<UpdateProduct/>}/>
       </Routes>
     </div>
   ); 
